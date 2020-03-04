@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+body{
+  background-image: url('data:image/jpeg;base64,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');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+</style>
+
+</head>
+<body>
+  <ul>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="photos.html">Photos</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="party.html">Party</a></li>
+</ul>
+<h1>A bond that will never break.........</h1>
+<h2>A family because of all the support from our beloved and respected sirs...........</h2>
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 5</div>
+  <img src="https://lh3.googleusercontent.com/TjzvqsFZhY6DucN6Hq6PurzXVJeh1syQHwfmQMuAzy6mUU618Zj5yN9I3qTSwanIxvkyYgfO6kQiNggdxnOH4t8TRRFMIFpUkAx1BfsJEpB8iqnCz2XFrVbcvNoq5UaWefazNUTj1tdojasbRiRobxVhKRkoisYUK-PD8RUveyJ8nnDCjSpGDMO23gaJjG16IUeaxMiJFx6M7Z55NTU7osBp2vUZ_HksDPawdUw__auq0yJ6J-X-WKRh7pj08A2O4Pd02CS3mKj49qUG6IWvD4djOwEz5r-sSI45g8gLX_ohfrk70vMZXscMDQ42q-9VJ3-R2nHGQHiGDWnj4xqchUEWV2FE9gMgGAoyuoaisXnqZmdKXCIYYhWUrapBuHaSzr9WraUG96DnHaT2XKKJicYvPXMosNkp4d8Fzq1H3bIaKzSz2BD2eXH7DTUyrOQGPl4kWJDF69nNrBxy7Gh8sXTBQLMThUYbOoIm8G9F4KaIfjCfHxadqXnk6ozL6OHV2wHoWSojFOuoVDoz9e_sRT7yoKm8Ds_UGlCHy2zQhEjAZjDI6iEYQlUMW9lpul4jURDeJUdQ-ho56fR7_HZv8l_X3SaISC06SrWsGucX4GmgK3dbmodeCAYYlZSsDn6WCr2WlT1Yqsq3-fw3VG61QcP_9iKXq1tHfBgkhF56lPxMWmhgSPiUmZBJ=w1052-h485-no" style="width:100%">
+  <div class="text"></div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">2 / 5</div>
+  <img src="https://lh3.googleusercontent.com/oJW7dp2ReA1e3tF96pczjeT_6wssnsA_Q45GbM9oSGmMKvNvBZigkqyLlmQ5xtMLJABtHdQz8V-4JowJZDQEkj3bnHruCJPwMyNxwouOopx9cJXmp2i5AWQO3tBpYGZwnXmMcqtXPGw5p7Rhx6P8PWM-xI2vHcaI0yG_MQIAmv_dNQafG7WAUVWeFxUSHOrxcJxXsr9aFASS7gz-Jj2VdHexNpsNai6bSAuWsnUjmgHHtMBMkKjOtfndCQ3dzJC8P-d9B9cWqbZzZecnkx5oHjp68RSBYNv6Fl7QE8EFsW2pywUn3jA368AKxKUQTUEZ9AmC8B_JRJVQJDTI80KOIJiqQmOxcpX-Mtxcr4PSWKJPz9Fx8tHOyyPmSjZZKA0dj_1wOH1L-YuCFBnGB_qoKGLTHAmdnywG4X-qFY8GV50W2lbS0pttVEXoPUAe4jBGu9XeJ3SrpMiuWW14LQzPtr4NcM3rl13w4IxucneRBL2g8gx3Ne32GEhtegMymq-6IlYcuxA6Jgvo6bfZegpKJ9-_Hoz1xJ3GpGVXdICnar2JY1qD16F60SSiLbK6mqk6Tmci5tCDhI8y4hTkqTqNGGUekaHztR4reFxZ4189kCoV7P7pKA790WGvA4fUC-jZFCJFsF0FUqqp5J4uPOU2W81ILmJSCg_FgNvj4yL3Tu4SXD9lPJcbTmVE=s250-k-rw-no" style="width:100%">
+  <div class="text"></div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 5</div>
+  <img src="https://lh3.googleusercontent.com/o7h4BYLLLXxrYrZ6CTqzHaEMEUoBzKLvqdRprgmUF-lqOCR4fioENJ_Zaudu-ssakVdxtHu2-eODz4avWV0RojpptkQxG4y06gnG4YHZk1wZHNn03z5dLueW3qWhZbwnRQnNN_XACWFw2OnKp5NO4iBqLWLfgNjQH9EsgbrmodXQs1uvmL0YPFs94dcbdgZbQIB9KBTHqEEOrxwSSGh_H9X4-SMq3LYxXz6FtZQstOxcMNrd3a5InmDlDA67826KCwMwmOvlaXiqIIhLCDsLcHG8MKj8Gk9GrPg7jDcC2bq5ruxVFCb_lZiHjR5H7N2SlRP9fYBJSqJ3teX4aWGnHK454SKl2SQY0WGVDpVa3dteZf0zuM3L70cVLuWsUrxvtQYoaNQTwYiPDXoXMkxpIpH6weGNdgxQBVllEeyh5FDhOwkKbMoA8hNNLc8uIWNoM3bzeBOi_Ha6c4Z3ocMT6N3tPQB8Zj6gbuYPGr-RnIEkKI2jIPIzsmd0Lye4q6LXPpG30kotjDwbs2Rg3YXBnhVUvA5ozsgOOEqWLdtmcjeS0zdTtYqklTLU8SxjnMUFVwsofY37XQPE_LwOlFvAAqSoEEA6cDiUxLvv3aM-yqzdDLlwd2IOinueRirQ-ePjRDWS45tV1CeXVaU3i6Q68bLqpGLWcboPNPFdzKieUGoF4GCt16ixoA=w677-h720-no" style="width:100%">
+  <div class="text"></div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">3 / 5</div>
+  <img src="https://lh3.googleusercontent.com/MJWUFSOI_bZKmOUS5uohoCn55ZxsMDKlS_13OCXBb5Lh5-DXN5iXjrS9cvVq6EQC2D5YUZsLp_6N04DKuQdx_FS8yT0D1tvJpC-XsDfNjkXsWzn4p27MwdgLLFDDz8XgPDZWzRM6m_GrIS4Spg1gF566HmB3zyTSrjrMdT57teJ06laqUcqm47ZQs6tY4FM1I-gUGiUZAhgGKOzbHg5QouCag3Ky6joRTwx3LiMsn1J0svzYyJYk-LZU_XVkq4eggOHJDBPGD9UsoGdMEoAkBxhDQvdtOm3x6iv172kLmbkK7hO3u8-IkaLeRQ-BJWvzsB35fXwPPxfiAKpBFUpkYYEQLbu8aJf6L0tN9R3mNqWyJ-tEJPQ-E31PWlo9qJDF77wAG8epK1QQTUxbuTVYFjxl4QIpsrbVpkc6FpMdEZ0tbKXURSDfuRi1sDD1Ory6b-9g6Wo5E0oInyECN0lcDto4edyZIXI4YeMdiiS0QWxCuI3IaHlJpfABywJK2ohGj-rTW1AWF_nX-TOUnO-b12kv-vEziveMFp7zwOsdxQLrPBk1ji8t9QzzyQ9YCXSDQIKvAH-6y6RDv8SZUlPmzIpKHoP5R173YS-jg5r6gPmo3eRqOF7UEaKpzaqi8WzLVolClbFMvghZ50l9FOqvT2ABIGJxam5wDF6AgOwN2zeEs4aCEPn957Fu=w1056-h784-no" style="width:100%">
+  <div class="text"></div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">4 / 5</div>
+  <img src="https://lh3.googleusercontent.com/mrtqOZot5esNJMlVctVVt2drNFB_78UHHNahRezEzUNXaQRQR-gVUsbyFE9onI2dK40Hk_KZiW78Y-ukv4tpJsMzg1wUao7shvVh9xpAeRp_YJpK8dKm63nZJR3ySbvZ__9Uc02hnTUKxofvFB86SauXQyzmN3nHPzY-nKbuPwt6gIPkIOIOv36Gy8W3so4WpoSata2UHqPYl1-6ogqE9XxHRw5R-6sB_zdXpZBjdPosACs9_YmZbo5bdEMV_T4UDnE-wWGYosF_0oG0uNPtteN_RVdVctskLx9qLBqn6LRxWbSXkykO-hvVSwmvt14RWOnH05B4kqniiYT44DLHmnayOfp-ksHSUR6E8dia7DxgQ329xWTRnJdaL8Bq9iBb1FDFuadUkVHdWzmuuM60I6Mc8x2_AChqAYJnStJNHPO876LFycEeHPDO9qv7Yi4hQ15f19e6kIfleR5NkQ6Q1LlH2ASyhUmlNflqVHTKhLbvFKodSkmDzlBeMfgq7jNPFZTgYBy-1cUQfRxnDbScEOMdLltve88HChHm8FbCWUngSLmkrB_8JD-pQZyhRr6RVbKndNjlHLaLCwONAbEbx_X2TffYLsEMKmBprClaH4vYql5luvFXti4KG2pO0y8AxNUzQLVjRfFX094XeJZ-sMaOHFFsITyftEvQuQgIB1uwvTKHV4JGaWs=w1056-h784-no" style="width:100%">
+  <div class="text"></div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">5 / 5</div>
+  <img src="https://lh3.googleusercontent.com/rLBYtqKy7ZDPYDU2VkI6q5fVKvbyhiFiJpm-AHlcfoRxEbmDcCxKj5bl4xNwZGm3VRCPPspE0Pzm3hhGGU2Lo-m1hrpDuJ69keW9pqoSi7uqaViR7exDGPyjahGVi2-_5t_vvb3n-1noVMzAp9vKzFwldikEp26OYeaIYsY4XT2hmtcdcnsRcIOzqGi-uFvzuWe2UXavzWsaW1ZO7L1zIMTlHuxd4c0NffDJ7lGKGRve5QdWiS6lIxFYwcRw1KNPDU3emf1Q12gmym9ak5ZDpq5bwi7Ozutv-vulOUiR0uFzKMLMKPqc1lcpvEu3-n0fU0SZSdgJWHd6tSrVRQdDWCF4iLqf-LKpfdYnyhjySFR7J1XuYrNZHMXE1JAJsuAre3SaIuq2ZnHWJmqo89-RMbC5OhfIQi1OJMXI3IB2Zgrwq05TemIbZo8gq_XlUbzN56gTx0obcDwyDwBpM3Pelp8R2mH9FZpt4GrovKrabsdu7Ag6d1JVDSRki7Tvf-xW9HF4xyL0TTxVzFL-lp9XhQsW4kQjH5_zAJ9SQifvcnDtVXsXXczSsslsEMVqC1i2ec1sgbGvhWMMhjOjXeSYicudhRPEaUiSrf1OyX1wWigI83tWrJNjO_0LX29VTZBYIm_czy_bajpb-k3l_QY-NHhJxEamaBXoao5llXP9Vrm1xTxxb6v0h3Q=w1056-h784-no" style="width:100%">
+  <div class="text"></div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000);
+}
+</script>
+
+</body>
+</html> 
